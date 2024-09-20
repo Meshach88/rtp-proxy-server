@@ -4,7 +4,11 @@ const app = express();
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://rtp.test', 
+  methods: ['GET', 'POST'],  // Allow only specific methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
+}));
 
 app.post('/proxy-osrm', (req, res) => {
   const { waypoints } = req.body;
