@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors({
   origin: 'https://gx7zb4xxdxmqx3kmwjh26x5ime0hmgpi.lambda-url.us-east-1.on.aws', 
   methods: ['GET', 'POST'],  // Allow only specific methods
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // Allow specific headers
 }));
 
 app.post('/proxy-osrm', (req, res) => {
